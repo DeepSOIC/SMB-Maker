@@ -1,0 +1,246 @@
+Draw: Nova AFM rpictures renderer added
+Draw: TopoR PCB renderer added 
+Prog tool and draw: closing window caused the script to compile/execute. Fixed - now it saves the text but does not compile it.
+Output window/Output function - improved speed. Also the output window is on top of main window, guaranteed.
+Main window: clicking the grayed scrollbar caused active colors to swap. Fixed.
+Brush tool: improved behaviour a lot (but it's still far from perfect).
+Scrolling: wheel capture by prog tool was not being released automatically. Fixed.
+Scrolling: new: horz scrolling by touchpad is now possible. Also note, by pressing shift, it will scroll vertically - useful when wheel is captured by prog tool.
+Scrolling: touchpad's vertical scrolling was not working properly with Synaptics touchpad. Fixed.
+Prog Tool: temporary drawing was erased on scrolling if picture >4Mpix. Fixed (it was unexpectedly easy!).
+System: there's a very nasty bug in Vista that prevents proper updating of picture (apparent when working with large (more than 4 megapixel) pictures, zoom=1, aero off. Appears as non-updating 256-pixel wide columns ). Temporarily fixed by detection of it at startup (notice a small window appearing on launch), which, however, makes drawing a little bit slower, especially in buggy areas.
+Load into sel: transparency mask was not updated correctly on loading a picture as selection. Fixed. 
+Text tool: new feature: option to degrade rendering quality.
+Scroll mode: with pen, it was very uncontrollable. Fixed: made an option in scroll settings for absolute pointing device.
+Text tool: non-transparent text was rendered red instead of blue and vice versa. Fixed.
+Programming: generation of pixels of a very heavy line could not be interrupted. Fixed.
+Main Window: Palette visibility was not correctly remembered. Fixed.
+Programming: in log window (output function writes there), typing Enter was difficult. Fixed. But not fixed for TAB :(
+Programming: in RGB function, r and b were swapped. Effectively fixed by changing documentation.
+Main Window: tool buttons did not work after window activation. Fixed.
+Filtering: colorful masks bug fixed.
+Programmed drawing: old interface was replaced with new one, the prog tool one.
+Drawing: Pen gestures are now disabled for drawing area
+Auto-scrolling: 
+ * made smarter (if mousedown in autoscrolling area, now no scrolling happens). 
+ * independent area settings for every border.
+ * Settings for pen and mouse can differ.
+ * "Autoscrolling" and "Dynamic scrolling" dialogs merged.
+Filtering: Added filled-circle generator.
+Filtering: there were too many buttons in the dialog. Menus created instead. 
+Prog tool: new function: Line3opaq, with 3-channel opacity!
+Programming: use of SetAry/GetAry funcs caused access violation or crash or wierd bugs.
+File Save dialog: made ask before overwriting a file.
+Prog tool: changes in Shift now cause mousemove, allowing the tool to react.
+Prog tool dialog: added Ctrl+A shortcut.
+Undoes: removed error notification when even a single action does not fit into undo memory limit.
+Main Window: added "Save Window Position" setting in "Options" menu.
+Prog tool: in dialog, there was no way to change the order of progs in the list. Added.
+Shortcuts: menu captions did not update correctly after editing shortcuts.
+Palette: Synchronize active color menu item has been removed. I actually never use it.
+Printing: general limit in numboxes is not approvable. Now it is fixed to 32767 printer pixels, in any scale.
+Selection with Formula now appears at center of screen, as Pasted image does.
+Paste and Show Selection now never makes the selection cross picture borders (except when it does not fit of course :)
+
+v 3.4 uploaded
+
+Self-installing: better handling of missing administrator rights
+Shortcuts: defaults updated
+Effects: Matrix mix: colorize option did not remember it's color.
+Undoes: Fixed error when selection size exceeds allowed undo memory.
+Effects: Rotate effect now also rotates transparency mask, thus no problems with rotating the text.
+Selection tool: fixed: mode and transparency mask changing after using text tool.
+OLE: fast auto-update of preview.
+File loading: after saving a file, statusbar says: "Saved. File size is 7.21KB."
+File loading: did not correctlydetect file format from extension on first load. Fixed.
+Text tool: Fixed clipping end of italic text.
+Text tool: Ctrl+V of text makes it render using last used settings (e.g. text font)
+Loading: made jpeg loading support large images
+Programming: added function "LineEx".
+Backups: added "view" button.
+Line Tool: made "Colorful" checkbox for preview
+Prog tool: made store progs in separate file, Progs.settings. And it updates each time the prog tool window is closed.
+File management: fixed bug: did not correctly remember dir in Save dialog
+Text Tool: Made Text tool create sel centered in view, that's much better.
+Clipboard: Fixed Copy command copying something strange when no selection. Now copies the whole pic.
+Not Fixed Bug: bad performance of lens window when Aero style in Vista is on. It slows down drawing. You can disable it.
+Programming: Added Output() function
+Zooming: zoom dialog redesigned.
+Printing: fixed problem in resolution button when different units for width and height.
+Printing: speedups and support for larger images.
+Navi mode: when using navi mode while drawing (holding space), mouse capture vanishes. Fixed.
+Shortcuts: In customization dialog, made useful keyboard shortcuts: Ctrl+up/down to move list entry; Enter to change key; Shift+enter to close the dialog.
+Prog Tool: made it autoload last used prog and compile it.
+Prog tool: made doubleclick in prog tools list work.
+Undoes,  Prog tool: fixed: * sometimes double undo required after application of an effect; * using prog tool that draws a preview caused redo to vanish.
+Selection Opts: fixed possible crash after click of a button "..." 
+Buttons: before: removed cls in freshing; now: added cls to resize event because of bad behavior on resize.
+File loading: fixed saying "file has unusual ext" for wmf files
+Shortcuts: fixed error message popping if action for the key is "(none)".
+Shortcuts: Added 'zoom to actual size' action.
+Shortcuts: Added actions for mouse wheel.
+Text Tool: fixed color box showing wrong color.
+Scripts, Text tool: Added Shift+Enter shortcut
+Lens: was working even when disabled with brush tool. Fixed.
+Drawing: anti-dblclick attached to drawing area.
+Internal: totally removed all sendkeys. Sendkeys does not work on Vista.
+Text: fixed bug outputting old text if new text has same dimensions
+Lens: made lens remember it's settings
+drawing-with-keyboard: fixed crash on step numbers larger than 255.
+Dlls:fixed bug when porting settings (unexisting directory caused run-time error).
+Programming: the Output() function
+
+Auto-install feature. Run SMB Maker with "/INSTALL" command string. It will automatically show Register types dialog. (not very new, but forgotten to log out)
+Scripts: in some scripts there was an error that did no matter in prev versions. But now zero-length lines are also drawn, and that error caused some points to appear at MouseDown event.  To fix the problem, instead of 'setdrawmode(event=1)' type 'setdrawmode(event<2)'.
+Color Map Effect: All together flag added. 
+RGB Matrix Effect: More matrix operations. Loading, Saving, Multiplying by templates.
+Installation: Uninstall command created. Use to clean the registry before deleting program.
+Active colors: Click gray area around active colors to swap them.
+Menu: Selection menu, where you can move, resize, delete, stamp then selection.
+Fade line tool: now has custom start and end weights. Plus adjustable antialiasing.
+Interface: Navigation mode. You can scroll the image by moving the mouse. Visit shortcuts to find out the key (Space by default).
+Differentiate effect: adjustable gains.
+DLLs:Updated some dll extraction and searching logic.
+File formats: new interface, +JPEG format. Remade init directories logic.
+Shortcuts: Msoue keys made really like mouse buttons: instead of toggling now key down - button down, key up - mouse up.
+Effects: Preview window in some effects.
+Other: Many bugs fixed.
+DLLs: SMBMaker.dll removed completely.
+Filtering: Remade again, now fully on VB. The amount of memory nedded decreased dramatically. Now it is data*2, and it was data*5. Also removed post-processing window. Plus new controls such as amount.
+Physics: Made faster.
+Physics: New interface for placing charges.
+Weight: Buttons are now lightweight (they do not have a separate window).
+Lens: made it's background erase (now does not produce strange effects when out of screen).
+Shortcuts: Removed the currently selected preset - it is always set to (current). Improved performance.
+Undoes: Memory size limit instead of count limit. Count is now unlimited.
+Resizing: some new methods of resizing.
+Resize dialog: redesigned. Info area created, where you can view aspect ratio, number of pixels and some sizes. Added very useful 'Lock aspect ratio' flag.
+BMP: improved saving of and reduced the amount of memory needed. So, very large bitmaps do not fail to save (if they were created, they can be saved if only you have enough disk space).
+Interface: number-input boxes can have native values. Rigth-click the slider to see.
+Gamma correction: made horizontal lines pattern instead of chess-board pattern to improve correction on CRT monitors.
+Bugs: in selection, when the size changes after e.g. editing caused access violation in some cases or improper displaying. Fixed.
+Interface: View image dialog, where you can view, edit (invert and rotate, or edit using new instance of SMB Maker), load or remove the image.
+Engine: new filling engine - faster and much more custom.
+Undoes: a small improvement in storing fragments.
+Bug: preview circle for helix was always solid black, frequently invisible. Fixed.
+Fade Line tool: <the same>
+Programmable tool: in zoomed image, recieves floating-point coords.
+Drawing: Draw grid command (in shortcuts) (experimental).
+Engine: rendering engine reprogrammed. Made faster. No failtures on large zooms any more.
+Gamma correction: added all-together flag.
+Confirm exit dialog bug: Save button caused file select dialog to appear. Fixed.
+PNG format! Saving/loading. Support for saving and loading 32-bit ones (with alpha channel)
+New since 2.2
+
+Version 2.2 finished
+Options: Mouse attraction. The mouse can be attracted to picture so that when it moves, the pointer moves (so leaves in place from picture's point of view)
+Behavior: PrintScreen key press now does not cause SMB Maker to create a selection (dead feature).
+Active colors: Drag it with right mouse button to get a color of any screen pixel.
+Core: When loading some forms, smb maker could crash because of absence of an item in resource string table. Now it is much more stable in that case.
+Extended input fields: Native values added (like page width printer dialog). Right-click the slider area to see.
+Lens: double-click now works and docks/undocks it.
+Interface: Right-click on tool options button now also works (before it produced only a beep).
+Fade Line: Shift produced strange results in any unusual mode. Fixed (it now affects only usual mode, any other - shift is simply ignored).
+Airbrush: Pressure sensitive flag was being ignored. Maybe fixed - cannot check - my tablet is broken.
+Main Menu: 'Toolbar BG' command removed from Options menu and key actions because of nonimportance.
+Main Menu: 'Clear picture' command was copied to Edit menu.
+Effects: Repeat last effect command failed to repeat linear color stretch (and maybe some else). Fixed.
+Controls: If after a right-click of a button a menu appeared, the button stopped working. Fixed.
+Color Map effect: background of graph area now matches selected color.
+Filter effect post-processing: preview worked incorrectly. Fixed.
+Programmic tool dialog: Add button now creates a template program.
+Menu commands: Removed obsolete command View:'View bytes'
+File formats: BRH saving removed for remaking.
+Filtering: mask was upside-donwed when not in texture mode. Fixed.
+File operations: Some palette-based bitmaps loaded incorrectly. Bitmap loading remade, made faster and more reliable.
+Programming: Rect's did not work. Always arg-count mismatch. Fixed.
+Programming: IIF function is renamed to IF (IIF still works OK). The second argument made optional.
+Programming: Bug: Min and Max functions always returned x. Fixed.
+Programming: New vector functions: Arg, XYLen, VectorLen, Normalize.
+Programming: CancelScroll variable added to control whether wheel rotation scrolls the picture.
+Printing: textboxes replaced by numboxes. Some bugs fixed.
+Scrolling: When in dynamic mode, smb maker used to take all free cpu time. It caused my processor to heat and the fan to rotate faster. SMB Maker now stops doing it after the movement stops.
+Drawings: Formula failed to draw when the selection was present. Fixed.
+User interface: Autoscrolling (scrolling when you try to draw out of visible part of image) is remade. It is now custom. Even more, the mouse now "glues" to the moving picture when you hold any button.
+Help system: History added (back and forward commands). Right-click the text area to pop them up.
+Help system: Buttons have been replaced by underlined blue text (like in html). Only for performance reasons.
+Programmic: line ignored the second color when no fade degree was specified. Fixed.
+General: Removed some dead code.
+Engine: fixed some problems when in large zooms.
+Draw: You can instert an Equation if you have MSEquation or something compatible like Math Type installed (as OLE).
+Interface: New style of file changed but not saved dialog.
+Actions: some new actions for shortcuts.
+Lens window: now restores the previous position.
+File mangement: extreme saving added, which works when SMB Maker refuses to do anything.
+Cosmetic: Color Graph dialog: new face.
+Engine: High-quality fade speeded up a bit (again). Plus a little bug fix: it painted at the end incorrectly when thinner than one pixel.
+Effects: Color Graph: intrepolation type linear did not work. Fixed.
+Programming: access to the wheel from the program.
+Programming: temp lines are now high-quality.
+Help window: added link buttons to the content.
+Programming: new function:loop.
+New since v2.1
+
+Drawing: fixed some problems with mouse-from-keyboard button clicks.
+Effects: Interpolation availiable in color graph.
+Effects: new effect rb offset. For LCD's.
+Fades: new method of setting fade degree.
+File management: you can drag a file onto the picture to load it as a selection.
+Programmable tool: loading multiple files.
+Programmable tool: when you load a program, it is loaded into a separate new entry, not to the current.
+Programmable tool: in program selection, bugs fixed with adding new programs.
+Interface: new nice and huge tooltips. They are only for number-input boxes.
+Programming: Bug: when only one color was supplied, line and circle statements ignored it. Fixed.
+Programming: Added support for temp drawing. It is very simple to erase a line. Added funtions: SetDrawMode() and RemoveTemp().
+Engine: New logic for removing drawn when you move the mouse while drawing with something like a line.
+Engine: Filtering effect in texture mode optimized, especially for masks with large black areas.
+Engine: Rectangle drawing optimized.
+Cosmetic: New resize dialog style.
+Cosmetic: New fade editor window resizement style. Textboxes replaced with extended ones.
+Engine: Offset added to color fade.
+Effects: Filtering effect is expanded to full-color mask.
+Programming: Semicolons are operators. They return the last value in the expression. They can be used inside bracketed expression.
+Cosmetic: lens window now does not stop working without dynamicscrolling.
+Engine: High-quality fade line speeded up a bit.
+Interface: A lock topic toggle in help window (this small red square).
+Programmic: fixed bug with message "StorePixel without StartPixelAction" for programmic tool.
+Engine: New logic for pen pressure.
+Engine: Wheel movement detection reformed. It now never skips movements. Now the wheel works in the help window.
+BUG: Tile stretch mode did not work. Fixed.
+Effects: Added Gamma correction to Color graph.
+Interface: Lens window can now be flying. And the zoom ratio is customizable. Right-click the lens to see.
+Program: Some icons removed from SMB Maker's resource to make it smaller.
+Program: SMBMaker.dll became sightly smaller (about TEN times).
+Programming: New compile error reporting. More informative.
+Programming: All the expressions now execute one by one, regardless of the operators priority.
+Programming: ';' is now an operator. But nothing has changed to the user.
+Cosmetic: new number editing control, which supports expressions and fast single-click setting.
+NOT FIXED BUG: In Win98, OleAut32.dll is out of date (on some computers). Installer cannot owerwrite it, and putting it to app's directory does not help. You can go to DOS mode and overwrite the system's one.
+Programming and interface: Fade Line width is modifyable in high-quality mode.
+Scrolling: bugs fixed in saving changes to dynamic scrolling when no mode change occured.
+Programming: Fixed bug with refresh() in tool when not in autoredraw mode.
+Zooming: fixed problems in zooming dialog.
+Resizes: Fixed bugs with undo's scrollbars resets.
+Programming: comments. Look the help to find out how.
+Engine: bugs fixed for breaking operations. Most processings can be cancelled, but some may crash.
+Cosmetic: New names for actions. Sort button removed.
+Engine: Fade lines in high quality now support widths (fully) and non-painted last pixel has no meaning now. Line width is not published in UI.
+Sel mode: Overlay.
+Sel mode: Selection through rgb matrix.
+Effects: Re-RGB has been replaced by RGB matrix effect.
+Engine: Fade lines in high quality mode now do not paint the last pixel and can have fractional coordinates. It now supports widths (beta).
+New since v1.0.x goes above.
+
+Programming: MoveMouse() function.
+Effects: New option in differentiate effect.
+Mistake fix: Middle click in rectangle tool caused an error.
+Programming: Refresh and Init functions.
+Programming: Buffer GetAry and SetAry functions.
+Prog tool: Progs list in programmic tool.
+Cosmetic: remember prog tool window position
+Programming: Added functions Abs and Pow
+Programming: In PSet and PSetEx r,g,b was replaced by Color
+Programmic tool: added Button,Shift, FC,BC, Event
+Programmic tool:x1,y1,x0,y0; only one program
+Functions: Max,Min,eAbove,eBelow
+Programming: Comparison operators > <
